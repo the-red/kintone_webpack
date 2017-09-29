@@ -12,4 +12,20 @@ module.exports = {
     filename: '[name].js',
   },
   devtool: 'inline-source-map',
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        query: {
+          presets: [['env', {
+            targets: { browsers: ['last 2 versions'] },
+            modules: false,
+          }]],
+          plugins: ['transform-class-properties'],
+        },
+      },
+    ],
+  },
 };

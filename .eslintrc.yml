@@ -3,6 +3,7 @@ env:
 extends: 'airbnb-base'
 globals:
   kintone: true
+parser: 'babel-eslint'
 rules:
   # window.alert() は認める
   no-alert: off
