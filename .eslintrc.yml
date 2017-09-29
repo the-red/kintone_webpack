@@ -1,0 +1,8 @@
+env:
+  browser: true
+extends: 'airbnb-base'
+globals:
+  kintone: true
+rules:
+  # window.alert() は認める
+  no-alert: off
