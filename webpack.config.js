@@ -4,8 +4,8 @@ const os = require('os');
 module.exports = {
   context: `${__dirname}/src`,
   entry: {
-    app1: './app1.js',
-    app2: './app2.js',
+    app1: ['babel-polyfill', './app1.js'],
+    app2: ['babel-polyfill', './app2.js'],
   },
   output: {
     path: path.join(os.homedir(), 'Dropbox/kintone/projectName'),

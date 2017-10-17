@@ -1,5 +1,3 @@
-import 'babel-polyfill';
-
 export default class TheWord {
   constructor(sec) {
     this.waitingTime = sec;
