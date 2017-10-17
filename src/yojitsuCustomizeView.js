@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import Vue from 'vue';
 import kintoneUtility from 'kintone-utility/docs/kintoneUtility';
 import HTML_TEMPLATE from './yojitsuCustomizeView.html';
@@ -20,8 +19,12 @@ kintone.events.on('app.record.index.show', (event) => {
   style.use();
 
   // kintoneに設定済みのタグを自作のHTMLファイルで置換
-  $('table#view').replaceWith(HTML_TEMPLATE);
-  $('#pager').remove();
+  const tableNode = document.querySelector('table#view');
+  const pagerNode = document.querySelector('#pager');
+  const { parentNode } = tableNode;
+  tableNode.insertAdjacentHTML('beforebegin', HTML_TEMPLATE);
+  parentNode.removeChild(tableNode);
+  parentNode.removeChild(pagerNode);
 
   (async () => {
     // 実績管理アプリのレコードを取得
