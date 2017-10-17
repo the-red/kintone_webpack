@@ -1,0 +1,20 @@
+// kintoneデフォルトのborderを非表示
+.app-index-contents-gaia>.box-gaia,
+.contents-bottommenu-gaia {
+  border-width: 0;
+}
+
+// Foundationフレームワーク
+// 使用するスタイルのみをincludeで有効化
+@import '~foundation-sites/scss/foundation';
+
+// グリッドだけはdivタグの外で有効化
+@include foundation-xy-grid-classes;
+
+// カスタマイズビューのみに適用
+#customize_view {
+  @include foundation-global-styles;
+  @include foundation-button;
+  @include foundation-forms;
+  @include foundation-table;
+}

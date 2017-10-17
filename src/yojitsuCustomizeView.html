@@ -1,0 +1,32 @@
+<div id="customize_view">
+  <div class="grid-x grid-padding-x">
+    <div class="small-12 cell">
+      <a href="#" class="button" id="dummy_button">値引きをDBに反映（ダミー）</a>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>拠点</th>
+        <th>担当者</th>
+        <th>予算</th>
+        <th>実績</th>
+        <th>値引き</th>
+        <th>実績 値引き後</th>
+        <th>予算との差異</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="(record, i) in records">
+        <td>{{ record.拠点.value }}</td>
+        <td>{{ record.persons }}</td>
+        <td>{{ record.budget.toLocaleString() }}</td>
+        <td>{{ record.actual.toLocaleString() }}</td>
+        <td><input v-model.number="record.discount" type="number" min="0"></td>
+        <td>{{ discountedActuals[i].toLocaleString() }}</td>
+        <td>{{ diffs[i].toLocaleString() }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

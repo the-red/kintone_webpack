@@ -6,6 +6,7 @@ module.exports = {
   entry: {
     app1: ['babel-polyfill', './app1.js'],
     app2: ['babel-polyfill', './app2.js'],
+    yojitsuCustomizeView: ['babel-polyfill', './yojitsuCustomizeView.js'],
   },
   output: {
     path: path.join(os.homedir(), 'Dropbox/kintone/projectName'),
@@ -26,6 +27,27 @@ module.exports = {
           plugins: ['transform-class-properties'],
         },
       },
+      {
+        test: /\.html$/,
+        loader: 'html-loader',
+      },
+      {
+        test: /\.css$/,
+        loader: ['style-loader/useable', 'css-loader'],
+      },
+      {
+        test: /\.scss$/,
+        loader: ['style-loader/useable', 'css-loader', 'sass-loader'],
+      },
+      {
+        test: path.join(__dirname, 'node_modules/kintone-utility/docs/kintoneUtility'),
+        loader: 'exports-loader?kintoneUtility',
+      },
     ],
+  },
+  resolve: {
+    alias: {
+      vue$: 'vue/dist/vue.esm.js',
+    },
   },
 };
