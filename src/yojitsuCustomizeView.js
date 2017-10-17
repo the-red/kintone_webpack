@@ -69,6 +69,12 @@ kintone.events.on('app.record.index.show', (event) => {
           return records.map((r, i) => r.budget - this.discountedActuals[i]);
         },
       },
+      methods: {
+        dummyAlert(e) {
+          const buttonName = e.target.innerHTML || e.target.value;
+          window.alert(`「${buttonName}」ボタンはダミーです。`);
+        },
+      },
     });
   })();
 });

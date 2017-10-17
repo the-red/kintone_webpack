@@ -1,7 +1,19 @@
 <div id="customize_view">
   <div class="grid-x grid-padding-x">
-    <div class="small-12 cell">
-      <a href="#" class="button" id="dummy_button">値引きをDBに反映（ダミー）</a>
+    <div class="small-3 cell">
+      <div class="input-group">
+        <input class="input-group-field" type="text">
+        <div class="input-group-button">
+          <input type="button" class="button" value="検索" v-on:click="dummyAlert">
+        </div>
+      </div>
+    </div>
+    <div class="small-8 cell">
+      <div class="button-group">
+        <a href="#" class="button" v-on:click="dummyAlert">ダウンロード</a>
+        <a href="#" class="button success" v-on:click="dummyAlert">値引きをDBに保存</a>
+        <a href="#" class="button alert" v-on:click="dummyAlert">全レコードを削除</a>
+      </div>
     </div>
   </div>
 
