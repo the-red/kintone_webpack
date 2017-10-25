@@ -11,6 +11,10 @@ rules:
   no-new: off
   # 引数の更新は認める
   no-param-reassign: off
+  # ++ 演算子はループ内のみ使用可能
+  no-plusplus:
+    - error
+    - allowForLoopAfterthoughts: true
   # for-ofは認める
   no-restricted-syntax:
     - error
