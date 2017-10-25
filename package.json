@@ -42,6 +42,7 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "foundation-sites": "^6.4.4-rc1",
+    "jquery": "^3.2.1",
     "kintone-utility": "https://github.com/kintone/kintoneUtility.git",
     "vue": "^2.5.2"
   }
