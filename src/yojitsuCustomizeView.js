@@ -27,14 +27,18 @@ kintone.events.on('app.record.index.show', event => {
   parentNode.removeChild(pagerNode)
   ;(async () => {
     // 実績管理アプリのレコードを取得
-    const { records: mainRecords } = await kintoneUtility.rest.getAllRecordsByQuery({
+    const {
+      records: mainRecords,
+    } = await kintoneUtility.rest.getAllRecordsByQuery({
       app: kintone.app.getId(),
-      query: kintone.app.getQuery()
+      query: kintone.app.getQuery(),
     })
 
     // 予算管理アプリのレコードを取得
-    const { records: optRecords } = await kintoneUtility.rest.getAllRecordsByQuery({
-      app: kintone.app.getLookupTargetAppId('拠点')
+    const {
+      records: optRecords,
+    } = await kintoneUtility.rest.getAllRecordsByQuery({
+      app: kintone.app.getLookupTargetAppId('拠点'),
     })
 
     const records = mainRecords.map(r => {
@@ -58,7 +62,7 @@ kintone.events.on('app.record.index.show', event => {
       // Vueを適用するelement
       el: '#customize_view',
       data: {
-        records
+        records,
       },
       computed: {
         discountedActuals() {
@@ -66,14 +70,14 @@ kintone.events.on('app.record.index.show', event => {
         },
         diffs() {
           return records.map((r, i) => r.budget - this.discountedActuals[i])
-        }
+        },
       },
       methods: {
         dummyAlert(e) {
           const buttonName = e.target.innerHTML || e.target.value
           window.alert(`「${buttonName}」ボタンはダミーです。`)
-        }
-      }
+        },
+      },
     })
   })()
 })

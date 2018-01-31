@@ -1,5 +1,5 @@
-const path = require('path');
-const os = require('os');
+const path = require('path')
+const os = require('os')
 
 module.exports = {
   context: `${__dirname}/src`,
@@ -20,10 +20,15 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
-          presets: [['env', {
-            targets: { browsers: ['last 2 versions'] },
-            modules: false,
-          }]],
+          presets: [
+            [
+              'env',
+              {
+                targets: { browsers: ['last 2 versions'] },
+                modules: false,
+              },
+            ],
+          ],
           plugins: ['transform-class-properties'],
         },
       },
@@ -40,7 +45,10 @@ module.exports = {
         loader: ['style-loader/useable', 'css-loader', 'sass-loader'],
       },
       {
-        test: path.join(__dirname, 'node_modules/kintone-utility/docs/kintoneUtility'),
+        test: path.join(
+          __dirname,
+          'node_modules/kintone-utility/docs/kintoneUtility'
+        ),
         loader: 'exports-loader?kintoneUtility',
       },
     ],
@@ -50,4 +58,4 @@ module.exports = {
       vue$: 'vue/dist/vue.esm.js',
     },
   },
-};
+}
