@@ -5,10 +5,6 @@ globals:
   kintone: true
 parser: 'babel-eslint'
 rules:
-  # ケツカンマを認める
-  comma-dangle:
-    - error
-    - only-multiline
   # 戻り値を受け取らないnew() は認める
   no-new: off
   # console.log を残さない console.warn/error はOK
