@@ -4,9 +4,11 @@ kintone.events.on(
   [
     'app.record.create.submit',
     'app.record.edit.submit',
-    'app.record.index.edit.submit'
+    'app.record.index.edit.submit',
   ],
   () => {
     new TheWorld(5).run()
+    console.log('hello')
+    console.error('error!')
   }
 )
